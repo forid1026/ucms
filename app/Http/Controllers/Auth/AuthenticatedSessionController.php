@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
+use function GuzzleHttp\Promise\all;
+
 class AuthenticatedSessionController extends Controller
 {
     /**
@@ -28,17 +30,15 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
         // user dashboard control method
         $url = '';
-        if ($request->user()->role == 'admin') {
+        if ($request->user()->role === 'admin') {
             $url = '/admin/dashboard';
-        } elseif ($request->user()->role == 'teacher') {
+        } elseif ($request->user()->role === 'teacher') {
             $url = '/teacher/dashboard';
-        } elseif ($request->user()->role == 'student') {
-            ($url = '/dashboard');
+        } elseif ($request->user()->role === 'student') {
+            $url = '/dashboard';
         }
-
         return redirect()->intended($url);
     }
 
