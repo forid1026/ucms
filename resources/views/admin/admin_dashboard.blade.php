@@ -45,11 +45,13 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="info-box bg-gradient-warning">
-                        <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+                        <span class="info-box-icon">
+                            <i class="fa fa-file-pdf text-white" aria-hidden="true"></i>
+                        </span>
 
                         <div class="info-box-content">
-                            <span class="info-box-text">Student</span>
-                            <span class="info-box-number">41,410</span>
+                            <span class="info-box-text">Total Notice</span>
+                            <span class="info-box-number">{{ count($notices) }}</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>

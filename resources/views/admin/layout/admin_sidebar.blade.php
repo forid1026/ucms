@@ -89,7 +89,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link active">
+                            <a href="{{ route('add.teacher') }}l" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Teacher</p>
                             </a>
@@ -99,6 +99,52 @@
                 <li class="nav-item ">
                     <a href="#" class="nav-link">
                         <i class="fa fa-user nav-icon" aria-hidden="true"></i>
+                        <p>
+                            Semester Manage
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('all.semester') }}" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Semester</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add.semester') }}" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Semester</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fa fa-user nav-icon" aria-hidden="true"></i>
+                        <p>
+                            Section Manage
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('all.section') }}" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Section</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('add.section') }}" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Section</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fa fa-file-pdf  nav-icon" aria-hidden="true"></i>
                         <p>
                             Notice Manage
                             <i class="right fas fa-angle-left"></i>

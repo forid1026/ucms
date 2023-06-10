@@ -47,6 +47,8 @@
 <script src="{{ asset('backend/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 <script src="{{ asset('backend/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
+{{--  toaster  --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
     $(function() {
         $("#example1").DataTable({
@@ -67,9 +69,21 @@
     });
 </script>
 
-<!--app JS-->
+!--Date picker-- >
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script script>
+    $(function() {
+        $(".date_picker").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "yy-mm-dd",
+        });
+    });
+</script>
+
+!--confirm alert-- >
 <script src="{{ asset('backend/assets/js/code.js') }}"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
     @if (Session::has('message'))
@@ -93,16 +107,4 @@
         }
     @endif
 </script>
-{{--  end toster  --}}
-<!--Date picker-->
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
-<script>
-    $(function() {
-        $(".date_picker").datepicker({
-            changeMonth: true,
-            changeYear: true,
-            dateFormat: "yy-mm-dd",
-        });
-    });
-</script>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>

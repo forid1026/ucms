@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notice;
+use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +16,8 @@ class AdminController extends Controller
     {
         $students = User::where('role', 'student')->get();
         $teachers = User::where('role', 'teacher')->get();
-        return view('admin.admin_dashboard', compact('students', 'teachers'));
+        $notices = Notice::get();
+        return view('admin.admin_dashboard', compact('students', 'teachers', 'notices'));
     } //end method
 
     public function RedirectDashboard()

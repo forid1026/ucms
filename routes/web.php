@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Default\NotificationController;
+use App\Http\Controllers\Default\BirthdayWishController;
+use App\Http\Controllers\Home\NoticeController;
+use App\Http\Controllers\Home\SemesterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
@@ -60,14 +62,38 @@ Route::middleware('auth', 'role:admin')->group(function () {
         Route::get('/delete/student/{id}', 'DeleteStudent')->name('delete.student');
     });
 
+    // semester All Route
+    Route::controller(SemesterController::class)->group(function () {
+        Route::get('/all/semester', 'AllSemester')->name('all.semester');
+        Route::get('/add/semester', 'AddSemester')->name('add.semester');
+        Route::post('/store/semester', 'StoreSemester')->name('store.semester');
+        Route::get('/edit/semester/{id}', 'EditSemester')->name('edit.semester');
+        Route::post('/update/semester/', 'UpdateSemester')->name('update.semester');
+        Route::get('/delete/semester/{id}', 'DeleteSemester')->name('delete.semester');
+
+        // all section route
+        Route::get('/all/section', 'AllSection')->name('all.section');
+        Route::get('/add/section', 'AddSection')->name('add.section');
+        Route::post('/store/section', 'StoreSection')->name('store.section');
+        Route::get('/edit/section/{id}', 'EditSection')->name('edit.section');
+        Route::post('/update/section/', 'UpdateSection')->name('update.section');
+        Route::get('/delete/section/{id}', 'DeleteSection')->name('delete.section');
+        Route::get('/get/section', 'GetSection')->name('get.section');
+    });
     // notification All Route
-    Route::controller(NotificationController::class)->group(function () {
+    Route::controller(NoticeController::class)->group(function () {
         Route::get('/all/notice', 'AllNotice')->name('all.notice');
         Route::get('/add/notice', 'AddNotice')->name('add.notice');
         Route::post('/store/notice', 'StoreNotice')->name('store.notice');
         Route::get('/edit/notice/{id}', 'EditNotice')->name('edit.notice');
         Route::post('/update/notice/', 'UpdateNotice')->name('update.notice');
         Route::get('/delete/notice/{id}', 'DeleteNotice')->name('delete.notice');
+        Route::get('/mark-as-read',  'markAsRead')->name('mark-as-read');
+    });
+
+    // notification All Route
+    Route::controller(BirthdayWishController::class)->group(function () {
+        Route::get('/all/birthday', 'TodaysBirthDay')->name('all.birthday');
     });
 }); //end admin middleware
 

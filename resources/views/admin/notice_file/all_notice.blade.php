@@ -1,5 +1,17 @@
 @extends('admin.layout.admin_master')
 @section('admin')
+    <style>
+        ._df_thumb {
+            width: 50px !important;
+            height: 50px !important;
+            margin: 0 !important;
+        }
+    </style>
+    <!-- Flipbook StyleSheet -->
+    <link href="{{ asset('backend/dflip/css/dflip.min.css') }} " rel="stylesheet" type="text/css">
+    <!-- Icons Stylesheet -->
+    <link href="{{ asset('backend/dflip/css/themify-icons.min.css') }}" rel="stylesheet" type="text/css">
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -20,7 +32,8 @@
                                     <tr>
                                         <td>Sl</td>
                                         <td>Title</td>
-                                        <td>Notice</td>
+                                        <td>description</td>
+                                        <td>Notice File</td>
                                         <td>Action</td>
                                     </tr>
                                 </thead>
@@ -29,7 +42,21 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $notice->title }}</td>
-                                            <td>{{ $notice->notice_file }}</td>
+                                            <td width="50%" class="des">
+                                                <div style="height: 50px; overflow:auto;">
+                                                    {!! $notice->description !!}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                @if ($notice->notice_file == null)
+                                                    No File Attach
+                                                @else
+                                                    <div class="_df_thumb" id="df_manual_thumb" height="100%"
+                                                        source="{{ asset($notice->notice_file) }}"
+                                                        thumb="{{ asset('upload/thumbnail.jpg') }}"> View Pdf</div>
+                                                @endif
+
+                                            </td>
                                             <td>
                                                 <a href="{{ route('edit.notice', $notice->id) }}" class="btn btn-info">
                                                     <i class="fas fa-edit    "></i>
@@ -62,4 +89,9 @@
         <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <!-- Flipbook main Js file -->
+    <script src="{{ asset('backend/dflip/js/dflip.min.js') }}" type="text/javascript"></script>
 @endsection
