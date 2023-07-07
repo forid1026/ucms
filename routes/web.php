@@ -41,7 +41,7 @@ Route::middleware('auth', 'role:admin')->group(function () {
     Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
     Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
     Route::get('/admin/change/password', [AdminController::class, 'ChangeAdminPassword'])->name('change.admin.password');
-    Route::post('/update/change/password', [AdminController::class, 'UpdateAdminPassword'])->name('update.admin.password');
+    Route::post('update/password', [AdminController::class, 'UpdatePassword'])->name('update.password');
 
     // teacher All Route
     Route::controller(TeacherController::class)->group(function () {
@@ -113,8 +113,12 @@ Route::middleware(['auth', 'role:student'])->group(function () {
     Route::get('/student/profile', [StudentController::class, 'StudentProfile'])->name('student.profile');
     Route::post('/student/profile/store', [StudentController::class, 'StudentProfileStore'])->name('student.profile.store');
     Route::get('/student/change/password', [StudentController::class, 'ChangeStudentPassword'])->name('change.student.password');
-    Route::post('/update/change/password', [StudentController::class, 'UpdateStudentPassword'])->name('update.teacher.password');
+    Route::post('/update/change/password', [StudentController::class, 'UpdateStudentPassword'])->name('update.student.password');
     Route::get('/student/logout', [StudentController::class, 'StudentLogout'])->name('student.logout');
+
+    // notice all method
+    Route::get('/student/notice', [StudentController::class, 'StudentNotice'])->name('student.notice');
+    Route::get('/student/notice/detail/{id}', [StudentController::class, 'StudentNoticeDetail'])->name('student.notice.detail');
 }); //end teacher middleware
 
 

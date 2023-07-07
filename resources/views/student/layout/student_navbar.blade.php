@@ -141,7 +141,7 @@
             <a href="{{ route('student.profile') }}">Profile</a>
         </li>
         <li class="list-group-item">
-            <a href="#">Change Password</a>
+            <a href="{{ route('change.student.password') }}">Change Password</a>
         </li>
         <li class="list-group-item">
             <a href="#">Forgot Password</a>

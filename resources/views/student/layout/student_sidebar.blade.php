@@ -15,7 +15,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ !empty($teacherData->photo) ? url('upload/teacher_images/' . $teacherData->photo) : url('upload/no-image.jpg') }}"
+                <img src="{{ !empty($studentData->photo) ? url('upload/student_images/' . $studentData->photo) : url('upload/no-image.jpg') }}"
                     class="img-circle elevation-2" alt="user avatar">
             </div>
             <div class="info">
@@ -47,6 +47,14 @@
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item menu-open">
+                    <a href="{{ route('student.notice') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Notice
                         </p>
                     </a>
                 </li>

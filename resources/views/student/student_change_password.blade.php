@@ -1,5 +1,5 @@
 @extends('admin.layout.admin_master')
-@section('admin')
+@section('student')
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
     <section class="content-header">

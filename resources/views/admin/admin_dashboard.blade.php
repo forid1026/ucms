@@ -35,7 +35,7 @@
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </span>
 
-                        <div class="info-box-content">
+                        <div class="info-box-content text-white">
                             <span class="info-box-text">Teacher</span>
                             <span class="info-box-number">{{ count($teachers) }}</span>
                         </div>
@@ -49,7 +49,7 @@
                             <i class="fa fa-file-pdf text-white" aria-hidden="true"></i>
                         </span>
 
-                        <div class="info-box-content">
+                        <div class="info-box-content text-white">
                             <span class="info-box-text">Total Notice</span>
                             <span class="info-box-number">{{ count($notices) }}</span>
                         </div>
@@ -57,7 +57,7 @@
                     </div>
                     <!-- /.info-box -->
                 </div>
-                <div class="col-md-3 col-sm-6 col-12">
+                {{--  <div class="col-md-3 col-sm-6 col-12">
                     <div class="info-box bg-gradient-secondary">
                         <span class="info-box-icon"><i class="far fa-bookmark"></i></span>
 
@@ -68,7 +68,7 @@
                         <!-- /.info-box-content -->
                     </div>
                     <!-- /.info-box -->
-                </div>
+                </div>  --}}
             </div>
         </div><!-- /.container-fluid -->
     </div>

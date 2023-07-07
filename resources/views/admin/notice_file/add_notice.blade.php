@@ -15,7 +15,7 @@
     </style>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js
-                                                                                                                                        ">
+                                                                                                                                                                                                                                                                                                                                    ">
     </script>
     <!-- Main content -->
     <section class="content">
@@ -35,11 +35,19 @@
                                 <div class="form-group">
                                     <label for="title">Title</label>
                                     <input type="text" name="title" class="form-control" id="title" required
-                                        required data-parsley-pattern="[a-zA-Z ]+$" data-parsley-trigger="keyup"
-                                        data-parsley-required-message="Title is required."
-                                        data-parsley-pattern-message="Title Must Be Alphabet.">
+                                        required data-parsley-required-message="Title is required.">
                                 </div>
                                 <div class="form-group">
+                                    <label for="notice_type">Notice Type</label>
+                                    <br>
+                                    <input type="radio" name="notice_type" id="notice_type" value="all_student"> All
+                                    student
+                                    <input type="radio" name="notice_type" id="notice_type" value="all_teacher"> All
+                                    teacher
+                                    <input type="radio" name="notice_type" id="notice_type" value="semester_wise">
+                                    Semester Wise
+                                </div>
+                                <div class="form-group" id="semester_column" style="display: none;">
                                     <label for="semester_id">Semester Name</label>
                                     <select class="form-control" name="semester_id" id="semester_id">
                                         <option selected disabled>Select Semester</option>
@@ -49,7 +57,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="section_column" style="display: none;">
                                     <label for="section_id">Section Name</label>
                                     <select class="form-control" name="section_id" id="section_id">
                                         <option selected disabled>Select Semester</option>
@@ -58,11 +66,6 @@
                                             </option>
                                         @endforeach
                                     </select>
-                                </div>
-                                <div class="form-group">
-                                    <input type="radio" name="" id="">All student
-                                    <input type="radio" name="" id="">All teacher
-                                    <input type="radio" name="" id="">Semester Wise
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description</label>
@@ -124,6 +127,20 @@
                         $("#section_id").html(html);
                     }
                 });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(document).on('change', '#notice_type', function() {
+                let notice_type = $(this).val();
+                if (notice_type == 'semester_wise') {
+                    $('#semester_column').show();
+                    $('#section_column').show();
+                } else {
+                    $('#semester_column').hide();
+                    $('#section_column').hide();
+                }
             });
         });
     </script>

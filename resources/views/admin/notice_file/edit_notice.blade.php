@@ -25,9 +25,7 @@
                                 <div class="form-group">
                                     <label for="title">Title</label>
                                     <input type="text" name="title" class="form-control" id="title" required
-                                        required data-parsley-pattern="[a-zA-Z ]+$" data-parsley-trigger="keyup"
-                                        data-parsley-required-message="Title is required."
-                                        data-parsley-pattern-message="Title Must Be Alphabet."
+                                        data-parsley-required-message="Title is required.""
                                         value="{{ $noticeInfo->title }}">
                                 </div>
                                 <div class="form-group">

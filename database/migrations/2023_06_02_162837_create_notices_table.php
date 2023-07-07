@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->string('notice_file')->nullable();
+            $table->string('notice_type')->nullable();
             $table->timestamps();
         });
     }

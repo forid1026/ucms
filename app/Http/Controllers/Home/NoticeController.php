@@ -28,28 +28,35 @@ class NoticeController extends Controller
             $name_gen = hexdec(uniqid()) . '.' . $notice_file->getClientOriginalExtension();
             $notice_file->move(('upload/notice_files/'), $name_gen);
             $save_url = 'upload/notice_files/' . $name_gen;
-            Notice::insert([
-                'title' => $request->title,
-                'semester_id' => $request->semester_id,
-                'section_id' => $request->section_id,
-                'description' => $request->description,
-                'notice_file' => $save_url,
-                'created_at' => Carbon::now(),
-            ]);
+
+            $notice = new Notice();
+            $notice->title = $request->title;
+            $notice->description = $request->description;
+            $notice->notice_file = $save_url;
+            $notice->notice_type = $request->notice_type;
+            if ($request->notice_type == 'semester_wise') {
+                $notice->semester_id = $request->semester_id;
+                $notice->section_id = $request->section_id;
+            }
+            $notice->created_at = Carbon::now();
+            $notice->save();
             $Notice = array(
                 'message' => 'Notice Added Successfully',
                 'alert_type' => 'success'
             );
         } else {
-            Notice::insert([
-                'title' => $request->title,
-                'semester_id' => $request->semester_id,
-                'section_id' => $request->section_id,
-                'description' => $request->description,
-                'created_at' => Carbon::now(),
-            ]);
+            $notice = new Notice();
+            $notice->title = $request->title;
+            $notice->description = $request->description;
+            $notice->notice_type = $request->notice_type;
+            if ($request->notice_type == 'semester_wise') {
+                $notice->semester_id = $request->semester_id;
+                $notice->section_id = $request->section_id;
+            }
+            $notice->created_at = Carbon::now();
+            $notice->save();
             $Notice = array(
-                'message' => 'Notice Added Successfully Without Successfully',
+                'message' => 'Notice Added Successfully without file',
                 'alert_type' => 'success'
             );
         }

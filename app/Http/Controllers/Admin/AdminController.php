@@ -62,9 +62,9 @@ class AdminController extends Controller
         return view('admin.admin_change_password');
     } //end method
 
-
-    public function UpdateAdminPassword(Request $request)
+    public function UpdatePassword(Request $request)
     {
+        // dd('hello');
         // validation
         $request->validate([
             'old_password' => 'required',
@@ -85,6 +85,29 @@ class AdminController extends Controller
             return back()->with('status', 'Password Change Successfully');
         }
     }
+    // public function UpdateAdminPassword(Request $request)
+    // {
+    //     dd('hello');
+    //     // validation
+    //     $request->validate([
+    //         'old_password' => 'required',
+    //         'new_password' => 'required',
+    //         'confirm_new_password' => 'required|same:new_password'
+    //     ]);
+
+
+    //     // match the old password
+    //     $hashedPassword = auth::user()->password;
+    //     if (!Hash::check($request->old_password, $hashedPassword)) {
+    //         return back()->with('error', "Old Password Doesn't Match!");
+    //     } else {
+    //         // update the new password
+    //         User::whereId(auth()->user()->id)->update([
+    //             'password' => Hash::make($request->new_password)
+    //         ]);
+    //         return back()->with('status', 'Password Change Successfully');
+    //     }
+    // }
 
     public function AdminLogout(Request $request)
     {

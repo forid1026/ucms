@@ -26,8 +26,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('update.admin.password') }}" method="POST"
-                                    enctype="multipart/form-data">
+                                <form action="{{ route('update.password') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
 
                                     @if (session('status'))

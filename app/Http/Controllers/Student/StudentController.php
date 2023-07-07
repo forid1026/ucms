@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\Notice;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -184,5 +185,17 @@ class StudentController extends Controller
             ]);
             return back()->with('status', 'Password Change Successfully');
         }
+    }
+
+    public function StudentNotice()
+    {
+        $studentNotice = Notice::where('notice_type', 'all_student')->get();
+        return view('student.notice.notice_all', compact('studentNotice'));
+        // dd($studentNotice);
+    }
+    public function StudentNoticeDetail($id)
+    {
+        $noticeDetails = Notice::findOrFail($id);
+        return view('student.notice.notice_details', compact('noticeDetails'));
     }
 }
